@@ -20,16 +20,12 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('txtuser', 'Username', 'required');
         $this->form_validation->set_rules('txtpass', 'Password', 'required|callback_check_user');
         
-       
-        // if($this->form_validation->run() === TRUE) {
-        // }
-        
         if($this->form_validation->run() === TRUE) {
             echo 'verify'.$this->session->userdata('account_name');
-            // echo "Hello";
+            
             redirect('home');
         } else {
-            // echo "World";
+            
             $this->index(); // Assuming you want to load a view if validation fails
         }
     }
@@ -41,8 +37,6 @@ class Login extends CI_Controller {
         
         $login = $this->login_model->login($username, $password);
         
-        // echo "check user".$login['user_accountname'];
-        
         if ($login){
             $sess_data = array(
                 'account_name' => $login['user_accountname'],
@@ -50,7 +44,6 @@ class Login extends CI_Controller {
             );
             
             $this->session->set_userdata($sess_data);
-            // echo $this->session->userdata('account_name');
 
             return true;
         } else {
