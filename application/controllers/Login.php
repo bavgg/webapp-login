@@ -59,14 +59,7 @@ class Login extends CI_Controller {
         }
     }
 
-    public function home() {
-        // $login = $this->login_model->login($username, $password);
-        // echo $login['user_accountname'];
-        echo "home";
-        $data['title'] = "Welcomes ".$this->session->userdata('account_name');
-        echo $this->session->userdata('account_name');
-        $this->load->view('home', $data);
-    }
+  
     
     
 }

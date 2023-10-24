@@ -13,7 +13,7 @@ class login_model extends CI_Model {
         
 
         $rs = $this->db->get_where('users', $condition_array);
-        $row_count = count($rs->row_array());
+        // $row_count = count();
         // var_dump($rs->row_array());
         // echo $rs->row_array()['user_name'];
         // $result =  $rs->row_array();
@@ -25,7 +25,7 @@ class login_model extends CI_Model {
         // }
         // $row_count = count($rs->row_array());
         // echo $rs->row_array();
-        if ($row_count > 0) {
+        if ($rs->row_array()) {
             // echo $rs;
             return $rs->row_array();
 
